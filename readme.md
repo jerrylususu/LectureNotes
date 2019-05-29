@@ -8,7 +8,7 @@
 | CS202 计算机组成原理 | 并行处理器 云（完结） | 2019/5/29    | [one](https://github.com/jerrylususu/LectureNotes/blob/master/CS202%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86.one), [pdf](https://github.com/jerrylususu/LectureNotes/blob/master/CS202%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86.pdf) |
 | CS208 算法设计与分析 | 最大流扩展            | 2019/5/29    | [one](https://github.com/jerrylususu/LectureNotes/blob/master/CS208%20%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90.one), [pdf](https://github.com/jerrylususu/LectureNotes/blob/master/CS208%20%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90.pdf) |
 | CS316 分布式与云计算 | 虚拟化（完结）        | 2019/5/29    | [one](https://github.com/jerrylususu/LectureNotes/blob/master/CS316%20%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E4%BA%91%E8%AE%A1%E7%AE%97.one), [pdf](https://github.com/jerrylususu/LectureNotes/blob/master/CS316%20%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E4%BA%91%E8%AE%A1%E7%AE%97.pdf) |
-| (*) SS042 世界建筑   | 巴洛克建筑            | 2019/5/29    | [one](https://github.com/jerrylususu/LectureNotes/blob/master/SS042%20%E4%B8%96%E7%95%8C%E5%BB%BA%E7%AD%91.one), [pdf](https://github.com/jerrylususu/LectureNotes/blob/master/SS042%20%E4%B8%96%E7%95%8C%E5%BB%BA%E7%AD%91.pdf) |
+| (*) SS042 世界建筑   | 巴洛克建筑（完结）    | 2019/5/29    | [one](https://github.com/jerrylususu/LectureNotes/blob/master/SS042%20%E4%B8%96%E7%95%8C%E5%BB%BA%E7%AD%91.one), [pdf](https://github.com/jerrylususu/LectureNotes/blob/master/SS042%20%E4%B8%96%E7%95%8C%E5%BB%BA%E7%AD%91.pdf) |
 
 (*). 如果你复习时想要摸鱼...
 

@@ -8,7 +8,7 @@
 | -------------------- | -------------------------------- | --------------- | ------------------------------------------------------------ |
 | CS201 离散数学       | 期中试卷解析、Quiz 2（新增）     | 2019/6/3 23:52  | [one](https://github.com/jerrylususu/LectureNotes/blob/master/CS201%20%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6.one), [pdf](https://github.com/jerrylususu/LectureNotes/blob/master/CS201%20%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6.pdf) |
 | CS202 计算机组成原理 | L14 汉明码、虚拟内存（bug 修复） | 2019/6/3 23:52  | [one](https://github.com/jerrylususu/LectureNotes/blob/master/CS202%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86.one), [pdf](https://github.com/jerrylususu/LectureNotes/blob/master/CS202%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86.pdf) |
-| CS208 算法设计与分析 | 算法 Review （完结）             | 2019/5/31 20:15 | [one](https://github.com/jerrylususu/LectureNotes/blob/master/CS208%20%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90.one), [pdf](https://github.com/jerrylususu/LectureNotes/blob/master/CS208%20%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90.pdf) |
+| CS208 算法设计与分析 | 各章节问题总结 更新至 C3 图      | 2019/6/4 22:30  | [one](https://github.com/jerrylususu/LectureNotes/blob/master/CS208%20%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90.one), [pdf](https://github.com/jerrylususu/LectureNotes/blob/master/CS208%20%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90.pdf) |
 | CS316 分布式与云计算 | 虚拟化（完结）                   | 2019/5/29 20:58 | [one](https://github.com/jerrylususu/LectureNotes/blob/master/CS316%20%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E4%BA%91%E8%AE%A1%E7%AE%97.one), [pdf](https://github.com/jerrylususu/LectureNotes/blob/master/CS316%20%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E4%BA%91%E8%AE%A1%E7%AE%97.pdf) |
 | (*) SS042 世界建筑   | 巴洛克建筑（完结）               | 2019/5/29 20:58 | [one](https://github.com/jerrylususu/LectureNotes/blob/master/SS042%20%E4%B8%96%E7%95%8C%E5%BB%BA%E7%AD%91.one), [pdf](https://github.com/jerrylususu/LectureNotes/blob/master/SS042%20%E4%B8%96%E7%95%8C%E5%BB%BA%E7%AD%91.pdf) |
 
@@ -22,6 +22,8 @@
 4. 笔记文件较大，故使用 Git Large File Support
 
 ## 更新日志
+
+6/4 22:30: 算法新增「各章问题总结」 更新至 C3 图
 
 6/3 23:52: 离散更新内容：期中试卷解析、Quiz 2; 计组 L13 bug 修正
 

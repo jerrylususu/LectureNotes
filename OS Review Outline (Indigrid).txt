@@ -1,0 +1,202 @@
+OS 复习
+	大架构
+		进程
+			syscall
+			用户视角、内核视角
+			生命周期、调度
+			信号
+			同步、死锁
+		内存
+			虚拟内存、地址翻译
+			缓存
+			请求分页
+		存储
+			I/O
+			文件系统
+	复习内容
+		课件 x12
+		lab x？
+		期中试卷 x1
+		作业 x?  report x9
+		pop quiz
+		onenote 图形笔记
+		去看看 unix call youtube视频
+	考前确认
+		L5, schedule算法手动画图
+		L6, 模拟p-c，哲学家就餐问题
+		lab7 银行家算法模拟
+		L8 P33 地址翻译模拟
+		L9 P23 缓存模拟
+		L10 P38 磁盘速度计算
+		L10 P52 disk scheduling 模拟
+	未解决问题列表
+		信号的处理过程？
+		多个程序共享同一个对象的时候，什么算CS？
+		A's CS != B's CS: L6-P28
+		银行家算法处理哲学家就餐问题？
+		资源分配图是啥？
+			没有环路不会死锁，出现环路可能死锁
+			如果只有一个资源实例，又出现了环路，就一定会死锁
+			资源分配图化简？
+				找一个只有分配边的进程节点（资源->进程）
+					找不到怎么办？
+				移除该节点和分配边，把资源分配给等待的进程
+				重复
+				如果能完全被化简，就没有死锁
+		程序从存储设备加载到内存的过程？
+		进程的调度方式？
+		缓存的替换方式？
+		进程和线程的区别？
+		为什么stack往下长 heap往上长
+		concurrency？parallel？
+			concurrency 并发，parallel 并行
+			“并发”指的是程序的结构，“并行”指的是程序运行时的状态
+			并行计算、并发编程
+			判断程序是否处于并行的状态，就看同一时刻是否有超过一个“工作单位”在运行就好了。所以，单线程永远无法达到并行状态。
+			正确的并发设计的标准是：使多个操作可以在重叠的时间段内进行
+			并发设计让并发执行成为可能，而并行是并发执行的一种模式。
+			https://laike9m.com/blog/huan-zai-yi-huo-bing-fa-he-bing-xing,61/
+		fork的 file，file locks？
+			file descriptor: process中的一个int
+			file description: kernel中描述file的一个struct，包括当前offset
+			file lock: advasory 加在 file 上，mandatory 加在 inode 上
+		之前process lab上遇到的诡异问题是什么？bg/fg？
+		Threads in a Process? L05P57
+		程序编译/运行全过程？L08-P14
+		L8-P33 用到的 x86 汇编指令？
+		L9-P19 Effective Access Time? Avg Access Time?
+			EAT = Hit Time + Miss Rate x Miss Penalty
+		L9-P28 LRU/MIN 下，小内存时cache的内容是大内存时的子集？
+		L9最后的页面部分：P33-P35？
+		L10-P4 Linux Memory Canonical Hole？
+		L10-P36 数值错误？
+		对比 ext2/3 和 fat?
+		L12-P4：VS. FAT: pointers of a file are
+	已经解决
+		system = fork + exec + wait
+		stack在上的内存布局被叫做什么：L1P29 segmentation
+		PCB存储在kernel中的数据结构：双向链表
+		wait，waitpid
+			wait：任何一个children，只管termination
+			waitpid：指定某一个child，可以监听多种状态改变
+			作用：暂停parent、清理child
+		time 的计时问题，什么时候多，什么时候少
+			real 真实耗时，user 用户模式下CPU时间，sys kernel模式下CPU时间
+			user+sys只是CPU时间
+			这三个值都是包含子进程的（如果可能，例如用了 wait/waitpid）
+			real < user+sys：多线程+多核
+			real > user+sys：IO-intensive，调度其他程序，mode切换overhead
+			syscall可能同时使用user和sys：可能需要数据处理：https://stackoverflow.com/a/556411
+		scheduling，context switching
+			schedule：决定下一个要运行的进程
+			context switch：真正的切换过程
+		hyperthreading
+			在OS层面上，线程的实现本身就是软件上降低依赖性，提升并发度的方法。而“假装自己是两个处理器”是最简单的硬件解耦，于是HT技术就这么产生了。首先解码逻辑核心1的机器码，送入执行单元，等待结果的同时解码逻辑核心2的机器码，如果出现的空闲的执行单元恰好是逻辑核心2的微码需要的，就直接送入执行单元不必一定要等待逻辑核心1的代码完全执行完毕。这一来一去，两个逻辑核心变得相对独立了。
+			https://zhuanlan.zhihu.com/p/58448264
+		Multiprocessing，Multiprogramming，Multithreading
+			Multiprocessing  Multiple CPUs
+			Multiprogramming  Multiple Jobs or Processes
+			Multithreading  Multiple threads per Process
+		进程间通信的方式？一共有几种？
+			Shared file
+				Pipe/FIFO
+				Shared memory
+				Semaphore
+				Shared file?
+			Message passing
+				Signal
+				Message queue
+				Socket
+				MPI
+		sem_close，sem_unlink
+			sem_close: close's a semaphore, this also done when a process exits. the semaphore still remains in the system.
+			sem_unlink: will be removed from the system only when the reference count reaches 0 (that is after all processes that have it open, call sem_close or are exited).
+			前者是语义上的，后者是文件系统中的
+		binary semaphore，mutex
+			• Mutex is more about resource protection.
+			• Semaphore is more about resource assignment.
+			• Mutex can only be unlock by container.
+			• Semaphore can be assigned by anyone, including caller itself.
+			• Mutex lock will be released, if the holder is terminate.
+			• Semaphore will not add up, if the holder is terminate.
+		conditional varible
+			Cond = a condition + a mutex
+			使用时间：when If/else is unbalance
+		Reader/Writer 问题
+			W: semaphore wrt=1
+			writer: wait wrt, write, signal wrt
+			R: int readcnt=0, semaphore  mutex=1
+				这个mutex只是锁readcnt的
+				wrt才是控制文件写入的
+				因为reader之间是不干扰的
+			reader
+				wait mutex，readcnt++，如果是第一个就wait wrt阻止写入，然后signal mutex
+				read
+				wait mutex, readcnt--，如果没有剩下的reader就signal wrt允许写入，然后signal mutex
+	奇怪的知识点列表
+		OS：kernel + driver, shell + util
+		存储 hierarchy：容量、延迟、带宽、价格
+		OS的4个核心概念：thread, addr space (+trans), process, dual mode op/protection
+			thread: single unique execution context + state
+			process: execution instance of a program, execution environment with Restricted Rights ，有状态
+			protection: control translation
+		读写内存地址的可能结果：nothing，正常，ignore，I/O操作，page fault, seg fault
+		触发context switch的因素：timer, I/O interrupt, signal, priority, voluntary yield, other
+		OS的protection目标：reliability, security, privacy, fairness
+		切换Kernel/User的3种方式：syscall, interrupt, trap/exception
+		fork的4变与5不变
+			不变（copy）：pc/register, code, memory（copy on write）, opened file
+			变：return value, PID, parent, running time, file locks
+		进程相关syscall实现
+			fork的实现过程：PCB复制、PCB修改、内存复制(可能CoW)、改返回值
+			exec实现：清空内存（userspace： local var + heap）、用新程序加载（reset: global var, code ,constant）、重设PC
+			exit实现：1内核释放PCB、关闭opend files，1a如果有children、过继给init（改child parent_ptr, 改init child_list，应用background job），2user space memory释放，3进程zombie、发送SIGCHLD给parent
+			wait实现：1注册SIGCHLD handler、2接收SIGCHLD信号、3接受并移除信号，把child完全从kernel-space移除、4删除handler，返回PID
+		process 生命周期：created, ready, running, waiting/blocked([un]interruptable), terminated/zombie
+		thread 生命周期：init, ready, running, waiting, finished
+		context switch 的开销
+			direct：保存/加载register，模式切换，地址空间切换
+			indirect：CPU cache, buffer cache?, TLB miss
+		schedule算法：FIFO, Shortest-Job-First(Preemptive, NP), Round-Robin, Priority + Multiple Queue, Priority + Multi Queue/Scheduler
+		RC：共享对象 多个进程 同时访问
+		CS实现：Mutual Exclusion, Bounded Wating (饥饿), Progress (死锁)
+		死锁条件：Mutual Exclusion, Hold and Wait, no Preemptation, Circular Wait
+		处理死锁策略：允许死锁恢复、避免死锁、忽略
+		已经死锁了：中止进程、抢占资源、回滚操作
+		避免死锁：无限资源、禁止共享、禁止等待、一开始申请好全部、特定顺序获取
+		死锁的检测：银行家算法
+			remain
+			如果分配是否超过max
+			是否可以安全结束
+		Memory Multiplexing的重点：Protection, Controlled Overlap, Translation
+		虚拟内存的实现方式：Base & Bound, Segmentation, Paging, Segment + Paging
+		缓存有用的前提：freq case 足够频繁, infreq case不太expensive
+		缓存有用的原因：spatial / temporal locality
+		cache的关注点：block size, organization, 如何查找, replacement policy, miss处理, write处理
+			organization: direct-mapped, set-associative, fully-associative，见L9-P41
+			write处理: write-through, write back
+		page fault处理：根据替换策略选择被替换的页、如果dirty写回、改PTE/TLB为invalid，加载新页，更新PTE并invalid旧 TLB项、从错误位置恢复
+		belady anomaly: 增加cache size反倒会增加miss，看size小是否是size大的子集，FIFO会，LRU/MIN不会
+		cache miss的种类：compulsory, capacity, conflict, policy
+		page replacement policy: FIFO, MIN, RANDOM, LRU, approx LRU(clock, n-th clock, second chance [FIFO+LRU])
+		page frame allocation: Equal, Proportional, Priority
+		IO设备的参数：数据粒度(byte, block), 访问模式(seq, random), 传输方式 (programmed IO, DMA)
+		CPU控制IO设备的方式（连接方法）：io instruction (in/out), memory-mapped IO (load/store)
+		CPU和IO设备之间数据传输的方式（传输方法）：programmed IO, Direct Memory Access
+		IO设备通知OS：interrupt, polling
+		IO评价标准：response time/latency, bandwith/throughput, start up/overhead
+		硬盘的物理组成：sector, track, cylinder
+		硬盘读写时间：(queuing time, controller time,) seek time (移到柱面), rotational latency (旋转到扇区), transfer time
+			SSD 无 seek/rotaional time
+		比较SSD/HDD：pro: 延迟/吞吐，移动部件，读速度 con: 贵、asymmetric block write perf、limited lifetime
+		Startup Cost for I/O：syscall overhead, OS processing, controller overhead, driver startup, queuing
+		disk scheduling: FIFO, Shortest Seek Time First, SCAN, Circular-SCAN, LOOK, CLOOK
+		FS的组成部分：naming, disk management, protection, reliability
+		FS Layout: contiguous allocation, linked allocation, inode allocation
+	期末问题
+		fork的实现过程
+		哪些方法可以实现 mutual exclusion？优缺点？
+		Filter Algorithm Peterson's_algorithm：多进程 turn/interested
+		期末考试：一定会考至少一个 IPC 问题
+		银行家算法
+		LRU
